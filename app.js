@@ -33,15 +33,19 @@ app.get("/compose", (req, res) => {
 })
 
 app.get("/posts/:anything", (req, res) => {
-  let count = 0;
+  let heading = "";
+  let body = "";
   posts.forEach((post) => {
     if (_.lowerCase(post.shrisak) === _.lowerCase(req.params.anything)) {
-      console.log("match found!");
-      count++;
+      heading = post.shrisak;
+      body = post.sarir;
     }
   });
-  if (count === 0) {
+  if (heading === "") {
     console.log("No match found");
+  }
+  else {
+    res.render('post', { heading: heading, body: body });
   }
 })
 app.post("/", (req, res) => {
