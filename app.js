@@ -30,6 +30,14 @@ app.get("/contact", (req, res) => {
 app.get("/compose", (req, res) => {
   res.render('compose');
 })
+
+app.get("/posts/:anything", (req, res) => {
+  posts.forEach((post) => {
+    if (post.shrisak == req.params.anything) {
+      console.log("match found!");
+    }
+  })
+})
 app.post("/", (req, res) => {
   const post = {
     shrisak: req.body.postName,
