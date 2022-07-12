@@ -3,6 +3,7 @@
 <p><%= homeStartingContent %></p>
 <%posts.forEach((post)=>{%>
     <h1><%=post.shrisak%></h1>
-    <p><%=post.sarir%></p>
+    <p class="spanThis"><%=post.sarir.slice(0,100).concat(" ...")%></p>
+    <a class="spanThis" href="/posts/<%=post.shrisak%>">Read More</a>
 <%})%>
 <%- include("partials/footer") -%>
